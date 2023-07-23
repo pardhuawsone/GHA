@@ -1,0 +1,23 @@
+name:  Shell Commands
+
+on:
+  push:
+    paths:
+     - '**'
+     - '!.github/**'
+     - '.github/workflows/sample.yml'
+     - '!**.md'           # do not run on doc change
+     
+  workflow_dispatch:
+
+jobs:  
+  runs-shell-commands:
+    runs-on:  ubuntu-latest
+    steps:
+      - name: echo a string
+        run:  echo "This is a string"
+      - name: multi commands
+        run: |
+          git -v
+          npm -v
+          echo It is done
