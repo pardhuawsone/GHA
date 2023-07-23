@@ -6,17 +6,15 @@ on:
       - main
     paths:
       -  '.github/workflows/sample.yml'
-  workflow_dispatch:
-	
+  workflow_dispatch:	
 jobs:
   runs-shell-commands:
     runs-on: ubuntu-latest
-	steps:
-	  name: "simple echo cmd"
-	  run:
-	    echo "hellow world"
-	  name: multi cmd
-	  run:
-	    echo "welcome"
-		echo "GitHub"
-		git -v
+    steps:
+      - name: "simple echo cmd"
+        run: echo "hellow world"
+      - name: multi cmd
+        run: |
+          git -v
+          npm -v
+          echo It is done
